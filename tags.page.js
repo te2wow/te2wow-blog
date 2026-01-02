@@ -12,7 +12,7 @@ export default function* ({ search }) {
 }
 
 function generateTagPage(tag, search) {
-  const posts = search.pages(`'${tag}'`, "date=desc", "tags");
+  const posts = search.pages(`tags*='${tag}'`, "date=desc");
 
   let html = `
 <div class="card bg-base-100 shadow-xl">
