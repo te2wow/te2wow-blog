@@ -1,0 +1,30 @@
+---
+layout: layouts/base.vto
+---
+{{ set postImage = image || "/images/default.svg" }}
+<article class="card bg-base-100 shadow-xl">
+  <figure>
+    <img src="{{ postImage }}" alt="{{ title }}" class="w-full h-64 object-cover" />
+  </figure>
+  <div class="card-body">
+    <header class="mb-6">
+      <h1 class="card-title text-3xl font-bold mb-3">{{ title }}</h1>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-base-content/70">
+        <time datetime="{{ date }}" class="badge badge-ghost">
+          {{ date |> date("DATE") }}
+        </time>
+        {{ if tags }}
+          {{ for tag of tags }}
+            <a href="/tags/{{ tag }}/" class="badge badge-primary badge-outline hover:badge-primary">{{ tag }}</a>
+          {{ /for }}
+        {{ /if }}
+      </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <div class="prose prose-lg max-w-none">
+      {{ content }}
+    </div>
+  </div>
+</article>

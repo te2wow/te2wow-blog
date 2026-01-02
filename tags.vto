@@ -1,0 +1,19 @@
+---
+title: Tags
+layout: layouts/base.vto
+url: /tags/
+---
+<div class="card bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h1 class="card-title text-3xl font-bold mb-6">Tags</h1>
+
+    <div class="flex flex-wrap gap-3">
+      {{ for tag of search.values("tags") }}
+      <a href="/tags/{{ tag }}/" class="badge badge-lg badge-primary gap-2 hover:badge-secondary transition-colors">
+        {{ tag }}
+        <span class="badge badge-ghost badge-sm">{{ search.pages("'" + tag + "'", "tags").length }}</span>
+      </a>
+      {{ /for }}
+    </div>
+  </div>
+</div>
