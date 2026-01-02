@@ -9,6 +9,7 @@ import metas from "lume/plugins/metas.ts";
 
 const site = lume({
   location: new URL("https://te2wow.github.io/te2wow-blog/"),
+  dest: "./_site",
 });
 
 site.use(tailwindcss());

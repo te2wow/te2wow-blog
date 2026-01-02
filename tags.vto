@@ -9,7 +9,7 @@ url: /tags/
 
     <div class="flex flex-wrap gap-3">
       {{ for tag of search.values("tags") }}
-      <a href="/tags/{{ tag }}/" class="badge badge-lg badge-primary gap-2 hover:badge-secondary transition-colors">
+      <a href="{{ "/tags/" + tag + "/" |> url }}" class="badge badge-lg badge-primary gap-2 hover:badge-secondary transition-colors">
         {{ tag }}
         <span class="badge badge-ghost badge-sm">{{ search.pages("'" + tag + "'", "tags").length }}</span>
       </a>

@@ -16,11 +16,11 @@ layout: layouts/base.vto
       {{ set postImage = post.image || "/images/default.svg" }}
       <div class="card bg-base-100 shadow-md lg:card-side">
         <figure class="lg:w-48 shrink-0">
-          <img src="{{ postImage }}" alt="{{ post.title }}" class="h-32 w-full object-cover lg:h-32 lg:w-48" />
+          <img src="{{ postImage |> url }}" alt="{{ post.title }}" class="h-32 w-full object-cover lg:h-32 lg:w-48" />
         </figure>
         <div class="card-body py-4">
           <h3 class="card-title text-xl">
-            <a href="{{ post.url }}" class="hover:text-primary transition-colors">{{ post.title }}</a>
+            <a href="{{ post.url |> url }}" class="hover:text-primary transition-colors">{{ post.title }}</a>
           </h3>
           <p class="text-sm text-base-content/60">
             <time datetime="{{ post.date }}">{{ post.date |> date("yyyy-MM-dd") }}</time>
@@ -28,7 +28,7 @@ layout: layouts/base.vto
           {{ if post.tags }}
           <div class="card-actions justify-start mt-2">
             {{ for tag of post.tags }}
-            <a href="/tags/{{ tag }}/" class="badge badge-secondary badge-outline hover:badge-secondary">{{ tag }}</a>
+            <a href="{{ "/tags/" + tag + "/" |> url }}" class="badge badge-secondary badge-outline hover:badge-secondary">{{ tag }}</a>
             {{ /for }}
           </div>
           {{ /if }}

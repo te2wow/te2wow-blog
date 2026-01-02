@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} | te2wow</title>
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="{{ "/styles/main.css" |> url }}">
 </head>
 <body class="min-h-screen bg-base-200 flex flex-col">
   <!-- ヘッダー -->
   <header class="navbar bg-base-100 shadow-lg">
     <div class="flex-1">
-      <a href="/" class="btn btn-ghost text-xl font-bold">te2wow</a>
+      <a href="{{ "/" |> url }}" class="btn btn-ghost text-xl font-bold">te2wow</a>
     </div>
     <nav class="flex-none">
       <ul class="menu menu-horizontal px-1 gap-1">
-        <li><a href="/" class="btn btn-ghost btn-sm">Home</a></li>
-        <li><a href="/about/" class="btn btn-ghost btn-sm">About</a></li>
-        <li><a href="/tags/" class="btn btn-ghost btn-sm">Tags</a></li>
+        <li><a href="{{ "/" |> url }}" class="btn btn-ghost btn-sm">Home</a></li>
+        <li><a href="{{ "/about/" |> url }}" class="btn btn-ghost btn-sm">About</a></li>
+        <li><a href="{{ "/tags/" |> url }}" class="btn btn-ghost btn-sm">Tags</a></li>
       </ul>
     </nav>
   </header>

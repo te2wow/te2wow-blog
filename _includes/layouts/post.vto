@@ -4,7 +4,7 @@ layout: layouts/base.vto
 {{ set postImage = image || "/images/default.svg" }}
 <article class="card bg-base-100 shadow-xl">
   <figure>
-    <img src="{{ postImage }}" alt="{{ title }}" class="w-full h-64 object-cover" />
+    <img src="{{ postImage |> url }}" alt="{{ title }}" class="w-full h-64 object-cover" />
   </figure>
   <div class="card-body">
     <header class="mb-6">
@@ -15,7 +15,7 @@ layout: layouts/base.vto
         </time>
         {{ if tags }}
           {{ for tag of tags }}
-            <a href="/tags/{{ tag }}/" class="badge badge-primary badge-outline hover:badge-primary">{{ tag }}</a>
+            <a href="{{ "/tags/" + tag + "/" |> url }}" class="badge badge-primary badge-outline hover:badge-primary">{{ tag }}</a>
           {{ /for }}
         {{ /if }}
       </div>
